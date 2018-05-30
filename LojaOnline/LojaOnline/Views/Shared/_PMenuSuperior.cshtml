@@ -1,0 +1,35 @@
+﻿
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            @Html.ActionLink("Loja Online", "Index", "Home", null, new { @class = "brand" })
+            <ul class="nav">
+                <li>@Html.ActionLink("Sobre", "Sobre", "Home")</li>
+                <li>@Html.ActionLink("Contato", "Contato", "Home")</li>
+                <li>@Html.ActionLink("Carrinho", "Index", "Carrinho")</li>
+                <li>@Html.ActionLink("Configurar SMTP", "ConfigurarSMTP", "Home")</li>
+            </ul>
+            <p class="navbar-text pull-right">
+                @if (Session["email"] != null)
+                {
+                    @:Bem vindo
+                    @:,
+                    @Session["email"]
+                    @:
+                    @Html.ActionLink("Logout", "Logout", "Login")
+                }
+                else
+                {
+                    @:Olá Visitante
+                    @:,
+                    @Html.ActionLink("Login", "Index", "Login")
+                    @:
+                    @:ou
+                    @:
+                    @Html.ActionLink("Cadastra-se", "Index", "Login")
+                }
+            </p>
+        </div>
+    </div>
+</div>

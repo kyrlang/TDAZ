@@ -1,0 +1,7 @@
+select c.nome, c.cnpj, 
+case when p.numero is null then 0 else p.numero end as numero, 
+p.data, p.valor
+from clientes c
+left join pedidos p on p.clienteid = c.clienteid
+order by c.nome, p.data desc
+

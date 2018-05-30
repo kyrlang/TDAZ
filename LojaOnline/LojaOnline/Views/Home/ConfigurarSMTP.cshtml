@@ -1,0 +1,25 @@
+﻿
+<div class="hero-unit span12">
+    <h2>Configuração de email</h2>
+    <p>Informe os dados abaixo para realizar configuração dos dados de envio de email</p>
+    @using (Html.BeginForm("ConfigurarSMTP", "Home", FormMethod.Post))
+    {
+        @Html.Label("SMTP:");
+        @Html.TextBox("SMTP", (string)Model["smtp"],  new { @class = "input-block-level" });
+        @Html.ValidationMessage("SMTP");
+
+        @Html.Label("Usuário:");
+        @Html.TextBox("usuario", (string)Model["usuario"], new { @class = "input-block-level" });
+        @Html.ValidationMessage("usuario");
+
+        @Html.Label("Senha:");
+        @Html.TextBox("senha", (string)Model["senha"], new { @class = "input-block-level" });
+        @Html.ValidationMessage("senha");
+
+        @Html.Label("From:");
+        @Html.TextBox("from", (string)Model["from"], new { @class = "input-block-level" });
+        @Html.ValidationMessage("from");
+
+        <input type="submit" value="Salvar" class="btn btn-large btn-primary" />
+    }
+</div>

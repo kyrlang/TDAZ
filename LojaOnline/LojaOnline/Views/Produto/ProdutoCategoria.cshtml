@@ -1,0 +1,19 @@
+﻿<div class="container-fluid">
+    <div class="row-fluid">
+
+        <h1>@ViewBag.Categoria</h1>
+
+        @foreach (var produto in ViewBag.Produtos)
+        {
+            <div class="span3">
+                <h3>@produto.Nome</h3>
+                <p>@produto.Descricao</p>
+                <p class="navbar-text pull-left">
+                    R$ @produto.Preco
+
+                    @Html.ActionLink("Comprar", "AdicionarItem", "Carrinho", new { produtoId = produto.Id }, new { @class = "btn-navbar" })
+                </p>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@using LojaOnline.Models
+@model IList<ItensCarrinho>
+
+
+@using (Html.BeginForm("Index", "Carrinho", new { carrinho = Model }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Produto</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Valor</th>
+                <th scope="col">+</th>
+                <th scope="col">-</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int i = 0;
+                double total = 0;
+            }
+
+            @foreach (var item in Model)
+            {
+                string valor = item.Valor.ToString("0.00");
+                <tr>
+                    <td>@Html.DisplayFor(c => @c[i].Produto, item.Produto)</td>
+                    <td>@Html.DisplayFor(c => @c[i].Quantidade, item.Quantidade)</td>
+                    <td>R$ @valor</td>
+                    <td>@Html.ActionLink("Adicionar", "AdicionarItem", new { produtoId = item.ProdutoId })</td>
+                    <td>@Html.ActionLink("Remover", "RemoverItem", new { produtoId = item.ProdutoId })</td>
+                </tr>
+                i++;
+                total = total + item.Valor;
+            }
+        </tbody>
+    </table>
+
+    <div class="container">
+        <p><h2>Valor Total: R$ @total.ToString("0.00")</h2></p>
+        <br /><br />
+        <p class="pull-right">@Html.ActionLink("Finalizar Pedido", "Finalizar", "Carrinho", new { @class= " btn btn-large btn-primary " })</p>
+    </div>
+
+                }

@@ -1,0 +1,29 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+
+    <div class="container-fluid">
+        @Html.Partial("_PMenuSuperior")
+        <div class="row-fluid">
+            <div class="span3">
+                @Html.Action("Index", "Menu")
+            </div>
+            <div class="span9">
+                @RenderBody()
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="~/Scripts/jquery-1.7.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    
+
+</body>
+</html>

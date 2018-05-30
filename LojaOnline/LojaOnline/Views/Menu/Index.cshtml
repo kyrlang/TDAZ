@@ -1,0 +1,19 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="sidebar-nav well">
+    <ul class="nav nav-list">
+        @foreach (var departamento in ViewBag.Departamentos)
+        {
+            <li class="nav-header"><h5>@departamento.Nome</h5></li>
+            foreach (var categoria in ViewBag.Categorias)
+            {
+                if (departamento.Id == categoria.Departamento.Id)
+                {
+                    <li>@Html.ActionLink((string)categoria.Nome, "ProdutoCategoria", "Produto", new { categoriaId = categoria.Id }, new {@class = "navbar-brand" })</li>
+                }
+            }
+        }
+    </ul>
+</div>

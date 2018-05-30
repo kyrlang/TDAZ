@@ -1,0 +1,35 @@
+﻿@model LojaOnline.Models.Usuarios
+
+<div class="hero-unit span6">
+    <h2>Login</h2>
+    <p>Se já possui cadastro, faça o seu login</p>
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        @Html.LabelFor(u => u.Email, "Email:");
+        @Html.TextBoxFor(u => u.Email, new { @class = "input-block-level" });
+        @Html.ValidationMessageFor(u => u.Email);
+
+        @Html.LabelFor(u => u.Senha, "Senha:");
+        @Html.PasswordFor(u => u.Senha, new { @class = "input-block-level" });
+        @Html.ValidationMessageFor(u => u.Senha);
+
+        <input type="submit" value="Login" class="btn btn-large btn-primary" />
+    }
+</div>
+
+<div class="hero-unit span6">
+    <h2>Cadastre-se</h2>
+    <p>Informe um email válido e senha para realizar seu cadastro</p>
+    @using (Html.BeginForm("Cadastrar", "Login", FormMethod.Post))
+    {
+        @Html.LabelFor(u => u.Email, "Email:");
+        @Html.TextBoxFor(u => u.Email, new { @class = "input-block-level" });
+        @Html.ValidationMessageFor(u => u.Email);
+
+        @Html.LabelFor(u => u.Senha, "Senha:");
+        @Html.PasswordFor(u => u.Senha, new { @class = "input-block-level" });
+        @Html.ValidationMessageFor(u => u.Senha);
+
+        <input type="submit" value="Cadastrar" class="btn btn-large btn-primary" />
+    }
+</div>
